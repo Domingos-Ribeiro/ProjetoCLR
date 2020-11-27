@@ -40,19 +40,26 @@ namespace ProjetoCLR {
 	private: System::Windows::Forms::Label^ lblTitulo;
 	private: System::Windows::Forms::Label^ lblAnoDeNascimento;
 	private: System::Windows::Forms::Label^ lblValor;
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox3;
-	private: System::Windows::Forms::CheckBox^ checkBox1;
-	private: System::Windows::Forms::CheckBox^ checkBox2;
-	private: System::Windows::Forms::CheckBox^ checkBox3;
+	private: System::Windows::Forms::TextBox^ txtNome;
+	private: System::Windows::Forms::TextBox^ txtAno;
+	private: System::Windows::Forms::TextBox^ txtValorBase;
+	private: System::Windows::Forms::CheckBox^ chkDesconto10;
+	private: System::Windows::Forms::CheckBox^ chkDesconto5;
+	private: System::Windows::Forms::CheckBox^ chkAgravamento;
+
+
+
+
+
+
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::RadioButton^ rdbSim;
 	private: System::Windows::Forms::RadioButton^ rdbNao;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::TextBox^ textBox4;
+	private: System::Windows::Forms::TextBox^ txtTotal;
+
 
 	private:
 		/// <summary>
@@ -73,19 +80,19 @@ namespace ProjetoCLR {
 			this->lblTitulo = (gcnew System::Windows::Forms::Label());
 			this->lblAnoDeNascimento = (gcnew System::Windows::Forms::Label());
 			this->lblValor = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
-			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
-			this->checkBox3 = (gcnew System::Windows::Forms::CheckBox());
+			this->txtNome = (gcnew System::Windows::Forms::TextBox());
+			this->txtAno = (gcnew System::Windows::Forms::TextBox());
+			this->txtValorBase = (gcnew System::Windows::Forms::TextBox());
+			this->chkDesconto10 = (gcnew System::Windows::Forms::CheckBox());
+			this->chkDesconto5 = (gcnew System::Windows::Forms::CheckBox());
+			this->chkAgravamento = (gcnew System::Windows::Forms::CheckBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->rdbSim = (gcnew System::Windows::Forms::RadioButton());
 			this->rdbNao = (gcnew System::Windows::Forms::RadioButton());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->txtTotal = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -99,6 +106,7 @@ namespace ProjetoCLR {
 			this->btnCalcular->TabIndex = 0;
 			this->btnCalcular->Text = L"CALCULAR";
 			this->btnCalcular->UseVisualStyleBackColor = true;
+			this->btnCalcular->Click += gcnew System::EventHandler(this, &Form1::btnCalcular_Click);
 			// 
 			// lblNome
 			// 
@@ -144,59 +152,59 @@ namespace ProjetoCLR {
 			this->lblValor->TabIndex = 1;
 			this->lblValor->Text = L"VALOR BASE";
 			// 
-			// textBox1
+			// txtNome
 			// 
-			this->textBox1->Location = System::Drawing::Point(283, 156);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(250, 20);
-			this->textBox1->TabIndex = 3;
-			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->txtNome->Location = System::Drawing::Point(283, 156);
+			this->txtNome->Name = L"txtNome";
+			this->txtNome->Size = System::Drawing::Size(250, 20);
+			this->txtNome->TabIndex = 3;
+			this->txtNome->Text = L"Shrek da Silva";
 			// 
-			// textBox2
+			// txtAno
 			// 
-			this->textBox2->Location = System::Drawing::Point(283, 188);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(115, 20);
-			this->textBox2->TabIndex = 3;
-			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->txtAno->Location = System::Drawing::Point(283, 188);
+			this->txtAno->Name = L"txtAno";
+			this->txtAno->Size = System::Drawing::Size(115, 20);
+			this->txtAno->TabIndex = 3;
+			this->txtAno->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
-			// textBox3
+			// txtValorBase
 			// 
-			this->textBox3->Location = System::Drawing::Point(283, 219);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(115, 20);
-			this->textBox3->TabIndex = 3;
-			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->txtValorBase->Location = System::Drawing::Point(283, 219);
+			this->txtValorBase->Name = L"txtValorBase";
+			this->txtValorBase->Size = System::Drawing::Size(115, 20);
+			this->txtValorBase->TabIndex = 3;
+			this->txtValorBase->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
-			// checkBox1
+			// chkDesconto10
 			// 
-			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(283, 279);
-			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(163, 17);
-			this->checkBox1->TabIndex = 4;
-			this->checkBox1->Text = L"Desconto de Escalão\? (10%)";
-			this->checkBox1->UseVisualStyleBackColor = true;
+			this->chkDesconto10->AutoSize = true;
+			this->chkDesconto10->Location = System::Drawing::Point(283, 279);
+			this->chkDesconto10->Name = L"chkDesconto10";
+			this->chkDesconto10->Size = System::Drawing::Size(163, 17);
+			this->chkDesconto10->TabIndex = 4;
+			this->chkDesconto10->Text = L"Desconto de Escalão\? (10%)";
+			this->chkDesconto10->UseVisualStyleBackColor = true;
 			// 
-			// checkBox2
+			// chkDesconto5
 			// 
-			this->checkBox2->AutoSize = true;
-			this->checkBox2->Location = System::Drawing::Point(283, 315);
-			this->checkBox2->Name = L"checkBox2";
-			this->checkBox2->Size = System::Drawing::Size(140, 17);
-			this->checkBox2->TabIndex = 4;
-			this->checkBox2->Text = L"Desconto de Sócio (5%)";
-			this->checkBox2->UseVisualStyleBackColor = true;
+			this->chkDesconto5->AutoSize = true;
+			this->chkDesconto5->Location = System::Drawing::Point(283, 315);
+			this->chkDesconto5->Name = L"chkDesconto5";
+			this->chkDesconto5->Size = System::Drawing::Size(140, 17);
+			this->chkDesconto5->TabIndex = 4;
+			this->chkDesconto5->Text = L"Desconto de Sócio (5%)";
+			this->chkDesconto5->UseVisualStyleBackColor = true;
 			// 
-			// checkBox3
+			// chkAgravamento
 			// 
-			this->checkBox3->AutoSize = true;
-			this->checkBox3->Location = System::Drawing::Point(283, 354);
-			this->checkBox3->Name = L"checkBox3";
-			this->checkBox3->Size = System::Drawing::Size(168, 17);
-			this->checkBox3->TabIndex = 4;
-			this->checkBox3->Text = L"Tem agravamento\? (12 euros)";
-			this->checkBox3->UseVisualStyleBackColor = true;
+			this->chkAgravamento->AutoSize = true;
+			this->chkAgravamento->Location = System::Drawing::Point(283, 354);
+			this->chkAgravamento->Name = L"chkAgravamento";
+			this->chkAgravamento->Size = System::Drawing::Size(168, 17);
+			this->chkAgravamento->TabIndex = 4;
+			this->chkAgravamento->Text = L"Tem agravamento\? (12 euros)";
+			this->chkAgravamento->UseVisualStyleBackColor = true;
 			// 
 			// label1
 			// 
@@ -259,34 +267,34 @@ namespace ProjetoCLR {
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &Form1::pictureBox1_Click);
 			// 
-			// textBox4
+			// txtTotal
 			// 
-			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->txtTotal->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox4->Location = System::Drawing::Point(675, 509);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(74, 26);
-			this->textBox4->TabIndex = 10;
-			this->textBox4->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->txtTotal->Location = System::Drawing::Point(675, 509);
+			this->txtTotal->Name = L"txtTotal";
+			this->txtTotal->Size = System::Drawing::Size(74, 26);
+			this->txtTotal->TabIndex = 10;
+			this->txtTotal->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(784, 603);
-			this->Controls->Add(this->textBox4);
+			this->Controls->Add(this->txtTotal);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->rdbNao);
 			this->Controls->Add(this->rdbSim);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->checkBox3);
-			this->Controls->Add(this->checkBox2);
-			this->Controls->Add(this->checkBox1);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->chkAgravamento);
+			this->Controls->Add(this->chkDesconto5);
+			this->Controls->Add(this->chkDesconto10);
+			this->Controls->Add(this->txtValorBase);
+			this->Controls->Add(this->txtAno);
+			this->Controls->Add(this->txtNome);
 			this->Controls->Add(this->lblTitulo);
 			this->Controls->Add(this->lblValor);
 			this->Controls->Add(this->lblAnoDeNascimento);
@@ -302,5 +310,65 @@ namespace ProjetoCLR {
 #pragma endregion
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void btnCalcular_Click(System::Object^ sender, System::EventArgs^ e) 
+
+{
+	//Adquirir o valor digitado no campo Valor Base
+	int valorBase = Convert::ToInt16(txtValorBase->Text);
+
+	//Converter o valor do ano para um numero inteiro
+	int ano = Convert::ToInt16(txtAno->Text);
+
+	//Desconto de 10%
+	double desconto_10 = 0.10;
+
+	//Desconto de 5%
+	double desconto_5 = 0.05;
+
+	//Desconto do Distrito
+	double descontoDistrito = 0.01;
+
+	//	Desconto do Concelho de Amares
+	double descontoConcelhoAmares = 0.20;
+
+	//Desconto de escalão ativo
+
+
+	double anoNascimento;
+	try
+	{
+		double anoNascimento = Convert::ToDouble(txtAno->Text);
+	}
+	catch (...)
+	{
+		anoNascimento = -1;
+		txtAno->Text = "Falta o Ano!";
+		txtNome->Text = "ERRO";
+	}
+	
+
+	//Se o ano for 2000 ou superior
+	if (ano >= 2000)
+	{
+		valorBase = valorBase * desconto_10;
+	}
+
+	if (chkDesconto10->Checked)
+	{
+		valorBase = valorBase * desconto_10;
+	}
+
+	if (chkDesconto5->Checked)
+	{
+		valorBase = valorBase * desconto_5;
+	}
+
+	if (chkAgravamento->Checked)
+	{
+		valorBase = + 12;
+	}
+
+	txtTotal->Text = Convert::ToString(valorBase);
+}
 };
 }
