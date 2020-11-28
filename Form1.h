@@ -316,6 +316,9 @@ private: System::Void btnCalcular_Click(System::Object^ sender, System::EventArg
 	//Adquirir o valor digitado no campo Valor Base
 	int valorBase = Convert::ToInt16(txtValorBase->Text);
 
+	//Acomulado
+	int acomulado = valorBase;
+
 	//Converter o valor do ano para um numero inteiro
 	int ano = Convert::ToInt16(txtAno->Text);
 
@@ -350,25 +353,25 @@ private: System::Void btnCalcular_Click(System::Object^ sender, System::EventArg
 	//Se o ano for 2000 ou superior
 	if (ano >= 2000)
 	{
-		valorBase = valorBase * desconto_10;
+		acomulado = valorBase * desconto_10;
 	}
 
 	if (chkDesconto10->Checked)
 	{
-		valorBase = valorBase * desconto_10;
+		acomulado = valorBase * desconto_10;
 	}
 
 	if (chkDesconto5->Checked)
 	{
-		valorBase = valorBase * desconto_5;
+		acomulado = valorBase * desconto_5;
 	}
 
 	if (chkAgravamento->Checked)
 	{
-		valorBase = + 12;
+		acomulado = + 12;
 	}
 
-	txtTotal->Text = Convert::ToString(valorBase);
+	txtTotal->Text = Convert::ToString(acomulado);
 }
 };
 }
