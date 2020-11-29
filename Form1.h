@@ -349,6 +349,7 @@ private: System::Void btnCalcular_Click(System::Object^ sender, System::EventArg
 		txtNome->Text = "ERRO";
 	}
 	
+	//verificação
 
 	//Se o ano for 2000 ou superior
 	if (ano >= 2000)
