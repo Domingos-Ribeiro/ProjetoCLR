@@ -366,6 +366,7 @@ private: System::Void btnCalcular_Click(System::Object^ sender, System::EventArg
 	{
 		acomulado = valorBase * desconto_5;
 	}
+	//Agravamento
 
 	if (chkAgravamento->Checked)
 	{
