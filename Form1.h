@@ -337,7 +337,7 @@ private: System::Void btnCalcular_Click(System::Object^ sender, System::EventArg
 	//Desconto de escalão ativo
 
 	//Não funciona
-	//Linhas a mais
+
 
 	double anoNascimento;
 	try
